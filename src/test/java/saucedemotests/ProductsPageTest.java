@@ -27,11 +27,9 @@ public class ProductsPageTest {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
 
-        //Enter username and password
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
 
-        //Click on the login button
         loginPage.clickLoginButton();
     }
 

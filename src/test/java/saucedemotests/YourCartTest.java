@@ -22,7 +22,6 @@ public class YourCartTest {
 
     @Before
     public void setUp() {
-        //Initialize ChromeDriver instance
         driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
@@ -32,11 +31,9 @@ public class YourCartTest {
         yourCartPage = new YourCartPage(driver);
         checkoutYourInformationPage = new CheckoutYourInformationPage(driver);
 
-        //Enter username and password
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
 
-        //Click on the login button
         loginPage.clickLoginButton();
     }
 
@@ -62,7 +59,6 @@ public class YourCartTest {
         productsPage.clickYourCartButton();
         assertEquals("1",productsPage.itemCountOnCart());
         assertEquals("Sauce Labs Backpack",yourCartPage.getTextFromBackpackTitle());
-        //assertEquals("Sauce Labs Backpack with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.",yourCartPage.getDescriptionFromFirstItem());
         assertEquals("$29.99",yourCartPage.getPriceFromFirstItem());
         assertEquals("Remove",yourCartPage.getBackpackRemoveButtonText());
         yourCartPage.clickRemoveButtonInYourCartPage();

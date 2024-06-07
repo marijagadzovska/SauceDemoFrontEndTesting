@@ -19,7 +19,6 @@ public class ItemReviewPageTest {
     private ItemReviewPage itemReviewPage;
     @Before
     public void setUp() {
-        //Initialize ChromeDriver instance
         driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
@@ -28,11 +27,9 @@ public class ItemReviewPageTest {
         productsPage = new ProductsPage(driver);
         itemReviewPage = new ItemReviewPage(driver);
 
-        //Enter username and password
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
 
-        //Click on the login button
         loginPage.clickLoginButton();
     }
 

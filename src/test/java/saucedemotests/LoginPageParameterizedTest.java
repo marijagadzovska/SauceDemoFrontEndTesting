@@ -23,7 +23,7 @@ public class LoginPageParameterizedTest {
         loginPage = new LoginPage(driver);
 
         loginPage.enterUsername(username);
-        loginPage.enterPassword("dddd");
+        loginPage.enterPassword("password");
 
         loginPage.clickLoginButton();
 

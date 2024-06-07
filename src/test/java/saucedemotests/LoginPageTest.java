@@ -18,7 +18,6 @@ public class LoginPageTest {
 
     @Before
     public void setUp() {
-        //Initialize ChromeDriver instance
         driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
@@ -29,23 +28,19 @@ public class LoginPageTest {
 
     @Test
     public void loginTest() {
-        //Enter username and password
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
 
-        //Click on the login button
         loginPage.clickLoginButton();
 
-        //verify login successful
         assertTrue(productsPage.isProductsPageDisplayed());
     }
 
     @Test
     public void errorMessage() {
-        loginPage.enterUsername("sdsd");
-        loginPage.enterPassword("dfsf");
+        loginPage.enterUsername("Alice");
+        loginPage.enterPassword("Williams");
 
-        //Click on the login button
         loginPage.clickLoginButton();
         System.out.println(loginPage.getErrorMessage());
         assertEquals("Epic sadface: Username and password do not match any user in this service",loginPage.getErrorMessage());

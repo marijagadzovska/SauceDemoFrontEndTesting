@@ -31,11 +31,9 @@ public class CheckoutYourInformationPageTest {
         yourCartPage = new YourCartPage(driver);
         checkoutYourInformationPage = new CheckoutYourInformationPage(driver);
 
-        //Enter username and password
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
 
-        //Click on the login button
         loginPage.clickLoginButton();
         productsPage.clickYourCartButton();
         yourCartPage.clickCheckoutButton();
@@ -51,7 +49,7 @@ public class CheckoutYourInformationPageTest {
     }
     @Test
     public void errorMessageForLastname(){
-        checkoutYourInformationPage.usernameField("marija");
+        checkoutYourInformationPage.usernameField("John");
         checkoutYourInformationPage.zipCodeField("7000");
         checkoutYourInformationPage.clickContinueButton();
         checkoutYourInformationPage.getErrorMessage();
@@ -61,8 +59,8 @@ public class CheckoutYourInformationPageTest {
     }
     @Test
     public void errorMessageForZipCode(){
-        checkoutYourInformationPage.usernameField("marija");
-        checkoutYourInformationPage.lastnameField("khhhh");
+        checkoutYourInformationPage.usernameField("John");
+        checkoutYourInformationPage.lastnameField("Smith");
         checkoutYourInformationPage.clickContinueButton();
         checkoutYourInformationPage.getErrorMessage();
         assertEquals("Error: Postal Code is required",checkoutYourInformationPage.getErrorMessage());

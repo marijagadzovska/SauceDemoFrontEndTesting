@@ -19,7 +19,6 @@ public class SideBarMenuTest {
 
     @Before
     public void setUp() {
-        //Initialize ChromeDriver instance
         driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
@@ -28,11 +27,9 @@ public class SideBarMenuTest {
         productsPage = new ProductsPage(driver);
         sideBarMenu = new SideBarMenu(driver);
 
-        //Enter username and password
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
 
-        //Click on the login button
         loginPage.clickLoginButton();
 
         productsPage.clickBurgerMenu();
